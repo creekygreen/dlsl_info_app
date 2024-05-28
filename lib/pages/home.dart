@@ -13,12 +13,14 @@ class HomePage extends StatelessWidget {
 
         child: SingleChildScrollView(
 
+          // Portion 1 of Homepage. Consists of the heading an the Carousel Slider
           child: Column(
             mainAxisSize: MainAxisSize.max,
             children: [
+
               Container(
                 width: MediaQuery.sizeOf(context).width,
-                height: 352,
+                height: 400,
                 decoration: const BoxDecoration(
                   color: Color(0xFF00872C)
                 ),
@@ -26,6 +28,8 @@ class HomePage extends StatelessWidget {
                 child: Column(
                   mainAxisSize: MainAxisSize.max,
                   children: [
+
+                    // Home page intro header
                     const Padding(
                       padding: EdgeInsetsDirectional.fromSTEB(0, 20, 0, 5),
                       child: Text(
@@ -39,27 +43,38 @@ class HomePage extends StatelessWidget {
                       )
                     ),
 
-                    const Text(
-                      'Take the first step here. Discover your possibilities',
-                      textAlign: TextAlign.center,
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 20,
-                        letterSpacing: 0,
-                      )
+                    // Homepage intro subheader
+                    const Padding(padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 20),
+                      child: Text(
+                        'Take the first step here. Discover your possibilities',
+                        textAlign: TextAlign.center,
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 20,
+                          letterSpacing: 0,
+                        )
+                      ),
                     ),
-                    
+
+                    // Sizedbox containing the Carousel Slider
                     SizedBox(
                       width: double.infinity,
-                      height: 184,
+                      height: 200,
                       child: CarouselSlider(
-                        options: CarouselOptions(viewportFraction: 1),
+                        options: CarouselOptions(
+                          initialPage: 1,
+                          viewportFraction: 0.5,
+                          disableCenter: true,
+                          enlargeCenterPage: true,
+                          enlargeFactor: 0.25,
+                          enableInfiniteScroll: true,
+                          scrollDirection: Axis.horizontal,
+                          autoPlay: false,
+                          // onPageChanged: (index, _) =>
+                          ),
+
                         items: [
                           InkWell(
-                            splashColor: Colors.transparent,
-                            focusColor: Colors.transparent,
-                            hoverColor: Colors.transparent,
-                            highlightColor: Colors.transparent,
                             onTap: () async {
                               //context.pushNamed('Courses');
                             },
@@ -72,10 +87,6 @@ class HomePage extends StatelessWidget {
                           ),
 
                           InkWell(
-                            splashColor: Colors.transparent,
-                            focusColor: Colors.transparent,
-                            hoverColor: Colors.transparent,
-                            highlightColor: Colors.transparent,
                             onTap: () async {
                               // Navigator.of(context).pushNamed('Courses');
                             },
@@ -88,48 +99,26 @@ class HomePage extends StatelessWidget {
                           ),
                           
                           InkWell(
-                            splashColor: Colors.transparent,
-                            focusColor: Colors.transparent,
-                            hoverColor: Colors.transparent,
-                            highlightColor: Colors.transparent,
                             onTap: () async {
-                              Navigator.of(context).pushNamed('Paymentfaci');
+                              //Navigator.of(context).pushNamed('Paymentfaci');
                             },
-
+                            
                             child: carouselCard(
                               'lib/assets/images/pay.png',
                               'PAYMENT FACILITIES',
-                              'Discover conventient ways to pay.'
+                              'Discover convenient ways to pay.'
                             )
                           ),
-
-                          InkWell(
-                            splashColor: Colors.transparent,
-                            focusColor: Colors.transparent,
-                            hoverColor: Colors.transparent,
-                            highlightColor: Colors.transparent,
-                            onTap: () async {
-                              Navigator.of(context).pushNamed('Courses');
-                            },
-
-                             child: carouselCard(
-                              'lib/assets/images/pay.png',
-                              'OUR PROGRAMS',
-                              'Ignite your passion through our program offerings'
-                            )
-                          ),
-                          
                         ],
+
                       )
-
                     )
-
                   ],
                 )
               )
+
             ],
           )
-
 
         )
       )
@@ -164,12 +153,13 @@ class HomePage extends StatelessWidget {
           Text(
             title,
             style: const TextStyle(
+              color: Colors.black,
               letterSpacing: 0,
             )
           ),
 
           const Divider(
-            color: Colors.blue,
+            color: Colors.transparent,
             thickness: 1,
           ),
 
@@ -177,6 +167,7 @@ class HomePage extends StatelessWidget {
             subtitle, 
             textAlign: TextAlign.center,
             style: const TextStyle(
+              color: Colors.black,
               letterSpacing: 0,
             )
           )
