@@ -53,6 +53,7 @@ class HomePage extends StatelessWidget {
                       width: double.infinity,
                       height: 184,
                       child: CarouselSlider(
+                        options: CarouselOptions(viewportFraction: 1),
                         items: [
                           InkWell(
                             splashColor: Colors.transparent,
