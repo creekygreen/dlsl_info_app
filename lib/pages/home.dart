@@ -2,14 +2,14 @@ import 'package:dlsl_info_app/pages/courses.dart';
 import 'package:dlsl_info_app/pages/payment_facilities.dart';
 import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
-
+import 'package:dlsl_info_app/global.dart'; 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: appBar(),
+      appBar: GlobalFunction.dlslAppBar(),
       body: SafeArea(
         top: true,
 
@@ -119,7 +119,7 @@ class HomePage extends StatelessWidget {
                       child: CarouselSlider(
                         options: CarouselOptions(
                           initialPage: 1,
-                          viewportFraction: 0.55,
+                          viewportFraction: 0.75,
                           disableCenter: true,
                           enlargeCenterPage: true,
                           enlargeFactor: 0.25,
@@ -151,7 +151,7 @@ class HomePage extends StatelessWidget {
                             },
 
                             child: newsCard(
-                              'assets/images/2024-05-16_15_51_18-IZN_Formal.png',
+                              'lib/assets/images/2024-05-16_15_51_18-IZN_Formal.png',
                               'May 16,2024',
                               'Internationalization Workshop Takes a Look at Global Education Strategies'
                             )
@@ -180,226 +180,197 @@ class HomePage extends StatelessWidget {
     );
   }
 
-  Card newsCard(String imgAsset, String date, String description) {
-    return Card(
-      clipBehavior: Clip.antiAliasWithSaveLayer,
-        color: Colors.white,
-        elevation: 4,
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(8),
-        ),
-        
-        child: Container(
-          width: 200,
-          height: 150,
-          decoration: BoxDecoration(
-            image: DecorationImage(
-              fit: BoxFit.cover,
-              image: Image.asset(
-                imgAsset,
-              ).image,
-            ),
-          ),
-          
-          child: Column(
-            mainAxisSize: MainAxisSize.max,
-            mainAxisAlignment: MainAxisAlignment.end,
-            crossAxisAlignment:
-            CrossAxisAlignment.start,
-
-            children: [
-              Padding(
-                padding: 
-                const EdgeInsetsDirectional.fromSTEB(10, 0, 0, 0),
-                child: Text(
-                  date,
-                  textAlign: TextAlign.start,
-                  style: const TextStyle(
-                    color: Colors.white,
-                    fontSize: 10,
-                    letterSpacing: 0,
-                    fontWeight: FontWeight.normal,
-                  ),
-                ),
-              ),
-
-              Padding(
-                padding: const EdgeInsetsDirectional.fromSTEB(10, 0, 0, 0),
-                child: Text(
-                  description,
-                  style: const TextStyle(
-                    color: Colors.white,
-                    fontSize: 10,
-                    letterSpacing: 0,
-                  )
-                )
-              )
-
-            ],
-          )
-
-        )
-
-    );
-  }
-
-  Column sloganHeader(String title, String subtitle) {
-    return Column(
-      children: [
-        Padding(
-          padding: const EdgeInsets.fromLTRB(20, 20, 20, 0),
-          //padding: const EdgeInsetsDirectional.fromSTEB(0, 20, 0, 5),
-          child: Text(
-            title, 
-            style: const TextStyle(
-              color: Colors.white,
-              fontSize: 25,
-              letterSpacing: 0,
-              fontWeight: FontWeight.bold,
-            )
-          )
-        ),
-        
-        // Homepage intro subheader
-        Padding(
-          padding: const EdgeInsets.fromLTRB(20, 0, 20, 20),
-          child: Text(
-            subtitle,
-            textAlign: TextAlign.center,
-            style: const TextStyle(
-              color: Colors.white,
-              fontSize: 20,
-              letterSpacing: 0,
-            )
-          ),
-        ),
-      ],
-    );
-  }
-
-    Column newsHeader(String title, String subtitle) {
-    return Column(
-      children: [
-        Padding(
-          padding: const EdgeInsets.fromLTRB(20, 20, 20, 0),
-          child: Text(
-            title, 
-            style: const TextStyle(
-              color: Colors.black,
-              fontSize: 25,
-              letterSpacing: 0,
-              fontWeight: FontWeight.bold,
-            )
-          )
-        ),
-        
-        // Homepage intro subheader
-        Padding(
-          padding: const EdgeInsets.fromLTRB(20, 0, 20, 20),
-          child: Text(
-            subtitle,
-            textAlign: TextAlign.center,
-            style: const TextStyle(
-              color: Colors.black,
-              fontSize: 20,
-              letterSpacing: 0,
-            )
-          ),
-        ),
-      ],
-    );
-  }
-
-  Card infoCard(String imgAsset, String title, String subtitle) {
-    return Card( 
-      clipBehavior: Clip.antiAliasWithSaveLayer,
+Card newsCard(String imgAsset, String date, String description) {
+  return Card(
+    clipBehavior: Clip.antiAliasWithSaveLayer,
       color: Colors.white,
       elevation: 4,
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),   
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(8),
+      ),
+      
+      child: Container(
+        width: 200,
+        height: 150,
+        decoration: BoxDecoration(
+          image: DecorationImage(
+            fit: BoxFit.cover,
+            image: Image.asset(
+              imgAsset,
+            ).image,
+          ),
+        ),
+        
+        child: Column(
+          mainAxisSize: MainAxisSize.max,
+          mainAxisAlignment: MainAxisAlignment.end,
+          crossAxisAlignment:
+          CrossAxisAlignment.start,
 
-      child: Column(
-        mainAxisSize: MainAxisSize.max,
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Padding(
-            padding: const EdgeInsetsDirectional.fromSTEB( 0, 0, 0, 10),
-            child: ClipRRect(
-              borderRadius: BorderRadius.circular(8),
-              child: Image.asset(
-                imgAsset, 
-                width: 47,
-                height: 57,
-                fit: BoxFit.none,
+          children: [
+            Padding(
+              padding: 
+              const EdgeInsetsDirectional.fromSTEB(10, 0, 0, 0),
+              child: Text(
+                date,
+                textAlign: TextAlign.start,
+                style: const TextStyle(
+                  color: Colors.white,
+                  fontSize: 10,
+                  letterSpacing: 0,
+                  fontWeight: FontWeight.normal,
+                ),
+              ),
+            ),
+
+            Padding(
+              padding: const EdgeInsetsDirectional.fromSTEB(10, 0, 0, 0),
+              child: Text(
+                description,
+                style: const TextStyle(
+                  color: Colors.white,
+                  fontSize: 10,
+                  letterSpacing: 0,
+                )
               )
             )
-          ),
 
-          Padding(
-            padding: const EdgeInsets.fromLTRB(20, 0, 20, 0),
-            child: Text(
-              title,
-              textAlign: TextAlign.center,
-              style: const TextStyle(                
-                color: Colors.black,
-                letterSpacing: 0,
-              )
-            ),
-          ),
+          ],
+        )
 
-          const Divider(
-            color: Colors.transparent,
-            thickness: 1,
-          ),
+      )
 
-          Padding(
-            padding: const EdgeInsets.fromLTRB(20, 0, 20, 0),
-            child: Text(
-              subtitle,               
-              textAlign: TextAlign.center,
-              style: const TextStyle(
-                color: Colors.black,
-                letterSpacing: 0,
-              )
-            ),
+  );
+}
+
+Column sloganHeader(String title, String subtitle) {
+  return Column(
+    children: [
+      Padding(
+        padding: const EdgeInsets.fromLTRB(20, 20, 20, 0),
+        //padding: const EdgeInsetsDirectional.fromSTEB(0, 20, 0, 5),
+        child: Text(
+          title, 
+          style: const TextStyle(
+            color: Colors.white,
+            fontSize: 25,
+            letterSpacing: 0,
+            fontWeight: FontWeight.bold,
           )
-          
-        ],                
+        )
       ),
+      
+      // Homepage intro subheader
+      Padding(
+        padding: const EdgeInsets.fromLTRB(20, 0, 20, 20),
+        child: Text(
+          subtitle,
+          textAlign: TextAlign.center,
+          style: const TextStyle(
+            color: Colors.white,
+            fontSize: 20,
+            letterSpacing: 0,
+          )
+        ),
+      ),
+    ],
+  );
+}
 
-    );
-  }
+Column newsHeader(String title, String subtitle) {
+  return Column(
+    children: [
+      Padding(
+        padding: const EdgeInsets.fromLTRB(20, 20, 20, 0),
+        child: Text(
+          title, 
+          style: const TextStyle(
+            color: Colors.black,
+            fontSize: 25,
+            letterSpacing: 0,
+            fontWeight: FontWeight.bold,
+          )
+        )
+      ),
+      
+      // Homepage intro subheader
+      Padding(
+        padding: const EdgeInsets.fromLTRB(20, 0, 20, 20),
+        child: Text(
+          subtitle,
+          textAlign: TextAlign.center,
+          style: const TextStyle(
+            color: Colors.black,
+            fontSize: 20,
+            letterSpacing: 0,
+          )
+        ),
+      ),
+    ],
+  );
+}
 
-  AppBar appBar() {
-    return AppBar(
-      backgroundColor: const Color(0xFF00872C),
-      automaticallyImplyLeading: false,
-      leading: InkWell(
-        onTap: () async {
-          // context.pushNamed('HomePage');
-        },
+Card infoCard(String imgAsset, String title, String subtitle) {
+return Card( 
+  clipBehavior: Clip.antiAliasWithSaveLayer,
+  color: Colors.white,
+  elevation: 4,
+  shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),   
+
+  child: Column(
+    mainAxisSize: MainAxisSize.max,
+    mainAxisAlignment: MainAxisAlignment.center,
+    children: [
+      Padding(
+        padding: const EdgeInsetsDirectional.fromSTEB( 0, 0, 0, 10),
         child: ClipRRect(
           borderRadius: BorderRadius.circular(8),
           child: Image.asset(
-            'lib/assets/images/logo.png',
-            width: 300,
-            height: 200,
-            fit: BoxFit.contain,
-            ),
+            imgAsset, 
+            width: 47,
+            height: 57,
+            fit: BoxFit.none,
+          )
+        )
+      ),
+
+      Padding(
+        padding: const EdgeInsets.fromLTRB(20, 0, 20, 0),
+        child: Text(
+          title,
+          textAlign: TextAlign.center,
+          style: const TextStyle(                
+            color: Colors.black,
+            letterSpacing: 0,
+          )
         ),
       ),
 
-      title: const Text(
-        'Homepage',
-        style: TextStyle(
-              color: Colors.white,
-              fontSize: 22,
-              letterSpacing: 0,
-            ),
+      const Divider(
+        color: Colors.transparent,
+        thickness: 1,
       ),
-      actions: const [],
-      centerTitle: true,
-      elevation: 2,
-          );
-        }
-      }
+
+      Padding(
+        padding: const EdgeInsets.fromLTRB(20, 0, 20, 0),
+        child: Text(
+          subtitle,               
+          textAlign: TextAlign.center,
+          style: const TextStyle(
+            color: Colors.black,
+            letterSpacing: 0,
+          )
+        ),
+      )
+      
+    ],                
+  ),
+
+);
+}
+
+
+      
+ 
+}
 
