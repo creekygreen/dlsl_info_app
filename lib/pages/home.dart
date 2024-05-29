@@ -1,3 +1,5 @@
+import 'package:dlsl_info_app/pages/courses.dart';
+import 'package:dlsl_info_app/pages/payment_facilities.dart';
 import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 
@@ -20,7 +22,7 @@ class HomePage extends StatelessWidget {
 
               Container(
                 width: MediaQuery.sizeOf(context).width,
-                height: 400,
+                height: 370,
                 decoration: const BoxDecoration(
                   color: Color(0xFF00872C)
                 ),
@@ -28,42 +30,14 @@ class HomePage extends StatelessWidget {
                 child: Column(
                   mainAxisSize: MainAxisSize.max,
                   children: [
-
-                    // Home page intro header
-                    const Padding(
-                      padding: EdgeInsetsDirectional.fromSTEB(0, 20, 0, 5),
-                      child: Text(
-                        'Be a Lasallian!',
-                        style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 25,
-                          letterSpacing: 0,
-                          fontWeight: FontWeight.bold,
-                        )
-                      )
-                    ),
-
-                    // Homepage intro subheader
-                    const Padding(padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 20),
-                      child: Text(
-                        'Take the first step here. Discover your possibilities',
-                        textAlign: TextAlign.center,
-                        style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 20,
-                          letterSpacing: 0,
-                        )
-                      ),
-                    ),
-
-                    // Sizedbox containing the Carousel Slider
+                    sloganHeader('Be a Lasallian!', 'Take the first step here. Discover your possibilities'), 
                     SizedBox(
                       width: double.infinity,
                       height: 200,
                       child: CarouselSlider(
                         options: CarouselOptions(
                           initialPage: 1,
-                          viewportFraction: 0.5,
+                          viewportFraction: 0.55,
                           disableCenter: true,
                           enlargeCenterPage: true,
                           enlargeFactor: 0.25,
@@ -76,10 +50,13 @@ class HomePage extends StatelessWidget {
                         items: [
                           InkWell(
                             onTap: () async {
-                              //context.pushNamed('Courses');
+                              Navigator.push(
+                                context, 
+                                MaterialPageRoute(builder: (context) => const Courses()),
+                                );
                             },
 
-                            child: carouselCard(
+                            child: infoCard(
                               'lib/assets/images/appli.png',
                               'APPLICATION PROCESSS',
                               'Learn more about our application process.'
@@ -88,10 +65,13 @@ class HomePage extends StatelessWidget {
 
                           InkWell(
                             onTap: () async {
-                              // Navigator.of(context).pushNamed('Courses');
+                              Navigator.push(
+                                context, 
+                                MaterialPageRoute(builder: (context) => const Courses()),
+                                );
                             },
 
-                            child: carouselCard(
+                            child: infoCard(
                               'lib/assets/images/req.png',
                               'REQUIREMENTS',
                               'See DLSL application requirements here.'
@@ -100,25 +80,99 @@ class HomePage extends StatelessWidget {
                           
                           InkWell(
                             onTap: () async {
-                              //Navigator.of(context).pushNamed('Paymentfaci');
+                              Navigator.push(
+                                context, 
+                                MaterialPageRoute(builder: (context) => const PaymentFacilities()),);
                             },
                             
-                            child: carouselCard(
+                            child: infoCard(
                               'lib/assets/images/pay.png',
                               'PAYMENT FACILITIES',
-                              'Discover convenient ways to pay.'
+                              'Discover conventient ways to pay.'
                             )
-                          ),
-                        ],
+                          )
+
+                        ]
 
                       )
                     )
-                  ],
+                    
+                  ]
                 )
+              ),
+
+              // Latest News Portion
+              Container(
+                width: MediaQuery.sizeOf(context).width,
+                height: 450,
+                decoration: const BoxDecoration(
+                  color: Colors.white
+                ),
+
+                child: Column(
+                  mainAxisSize: MainAxisSize.max,
+                  children: [
+                    newsHeader('Latest News and Events', 'Stay connected. Be the first to know about exciting opportunities and activities'),
+                    SizedBox(
+                      width: double.infinity,
+                      height: 200,
+                      child: CarouselSlider(
+                        options: CarouselOptions(
+                          initialPage: 1,
+                          viewportFraction: 0.55,
+                          disableCenter: true,
+                          enlargeCenterPage: true,
+                          enlargeFactor: 0.25,
+                          enableInfiniteScroll: true,
+                          scrollDirection: Axis.horizontal,
+                          autoPlay: false,
+                          ),
+
+                        items: [
+                          InkWell(
+                            onTap: () async {
+                              Navigator.push(
+                                context, 
+                                MaterialPageRoute(builder: (context) => const PaymentFacilities()),);
+                            },
+
+                            child: newsCard(
+                              'lib/assets/images/2024-05-17_21_49_50-Final_SupGen.png',
+                              'May 17,2024',
+                              'Video Message of the Superior General for the Feast of St John Baptist de La Salle [May 15,2024]'
+                            )
+                          ),
+
+                          InkWell(
+                            onTap: () async {
+                              Navigator.push(
+                                context, 
+                                MaterialPageRoute(builder: (context) => const PaymentFacilities()),);
+                            },
+
+                            child: newsCard(
+                              'assets/images/2024-05-16_15_51_18-IZN_Formal.png',
+                              'May 16,2024',
+                              'Internationalization Workshop Takes a Look at Global Education Strategies'
+                            )
+                          ),
+
+
+                        ]
+
+                      )
+                    )
+                    
+                  ]
+                )
+
+
               )
 
-            ],
+            ]
           )
+
+
 
         )
       )
@@ -126,7 +180,137 @@ class HomePage extends StatelessWidget {
     );
   }
 
-  Card carouselCard(String imgAsset, String title, String subtitle) {
+  Card newsCard(String imgAsset, String date, String description) {
+    return Card(
+      clipBehavior: Clip.antiAliasWithSaveLayer,
+        color: Colors.white,
+        elevation: 4,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(8),
+        ),
+        
+        child: Container(
+          width: 200,
+          height: 150,
+          decoration: BoxDecoration(
+            image: DecorationImage(
+              fit: BoxFit.cover,
+              image: Image.asset(
+                imgAsset,
+              ).image,
+            ),
+          ),
+          
+          child: Column(
+            mainAxisSize: MainAxisSize.max,
+            mainAxisAlignment: MainAxisAlignment.end,
+            crossAxisAlignment:
+            CrossAxisAlignment.start,
+
+            children: [
+              Padding(
+                padding: 
+                const EdgeInsetsDirectional.fromSTEB(10, 0, 0, 0),
+                child: Text(
+                  date,
+                  textAlign: TextAlign.start,
+                  style: const TextStyle(
+                    color: Colors.white,
+                    fontSize: 10,
+                    letterSpacing: 0,
+                    fontWeight: FontWeight.normal,
+                  ),
+                ),
+              ),
+
+              Padding(
+                padding: const EdgeInsetsDirectional.fromSTEB(10, 0, 0, 0),
+                child: Text(
+                  description,
+                  style: const TextStyle(
+                    color: Colors.white,
+                    fontSize: 10,
+                    letterSpacing: 0,
+                  )
+                )
+              )
+
+            ],
+          )
+
+        )
+
+    );
+  }
+
+  Column sloganHeader(String title, String subtitle) {
+    return Column(
+      children: [
+        Padding(
+          padding: const EdgeInsets.fromLTRB(20, 20, 20, 0),
+          //padding: const EdgeInsetsDirectional.fromSTEB(0, 20, 0, 5),
+          child: Text(
+            title, 
+            style: const TextStyle(
+              color: Colors.white,
+              fontSize: 25,
+              letterSpacing: 0,
+              fontWeight: FontWeight.bold,
+            )
+          )
+        ),
+        
+        // Homepage intro subheader
+        Padding(
+          padding: const EdgeInsets.fromLTRB(20, 0, 20, 20),
+          child: Text(
+            subtitle,
+            textAlign: TextAlign.center,
+            style: const TextStyle(
+              color: Colors.white,
+              fontSize: 20,
+              letterSpacing: 0,
+            )
+          ),
+        ),
+      ],
+    );
+  }
+
+    Column newsHeader(String title, String subtitle) {
+    return Column(
+      children: [
+        Padding(
+          padding: const EdgeInsets.fromLTRB(20, 20, 20, 0),
+          child: Text(
+            title, 
+            style: const TextStyle(
+              color: Colors.black,
+              fontSize: 25,
+              letterSpacing: 0,
+              fontWeight: FontWeight.bold,
+            )
+          )
+        ),
+        
+        // Homepage intro subheader
+        Padding(
+          padding: const EdgeInsets.fromLTRB(20, 0, 20, 20),
+          child: Text(
+            subtitle,
+            textAlign: TextAlign.center,
+            style: const TextStyle(
+              color: Colors.black,
+              fontSize: 20,
+              letterSpacing: 0,
+            )
+          ),
+        ),
+      ],
+    );
+  }
+
+  Card infoCard(String imgAsset, String title, String subtitle) {
     return Card( 
       clipBehavior: Clip.antiAliasWithSaveLayer,
       color: Colors.white,
@@ -150,12 +334,16 @@ class HomePage extends StatelessWidget {
             )
           ),
 
-          Text(
-            title,
-            style: const TextStyle(
-              color: Colors.black,
-              letterSpacing: 0,
-            )
+          Padding(
+            padding: const EdgeInsets.fromLTRB(20, 0, 20, 0),
+            child: Text(
+              title,
+              textAlign: TextAlign.center,
+              style: const TextStyle(                
+                color: Colors.black,
+                letterSpacing: 0,
+              )
+            ),
           ),
 
           const Divider(
@@ -163,14 +351,18 @@ class HomePage extends StatelessWidget {
             thickness: 1,
           ),
 
-          Text(
-            subtitle, 
-            textAlign: TextAlign.center,
-            style: const TextStyle(
-              color: Colors.black,
-              letterSpacing: 0,
-            )
+          Padding(
+            padding: const EdgeInsets.fromLTRB(20, 0, 20, 0),
+            child: Text(
+              subtitle,               
+              textAlign: TextAlign.center,
+              style: const TextStyle(
+                color: Colors.black,
+                letterSpacing: 0,
+              )
+            ),
           )
+          
         ],                
       ),
 
@@ -182,10 +374,6 @@ class HomePage extends StatelessWidget {
       backgroundColor: const Color(0xFF00872C),
       automaticallyImplyLeading: false,
       leading: InkWell(
-        splashColor: Colors.transparent,
-        focusColor: Colors.transparent,
-        hoverColor: Colors.transparent,
-        highlightColor: Colors.transparent,
         onTap: () async {
           // context.pushNamed('HomePage');
         },
@@ -198,18 +386,20 @@ class HomePage extends StatelessWidget {
             fit: BoxFit.contain,
             ),
         ),
-),
-title: const Text(
-  'Homepage',
-  style: TextStyle(
-        color: Colors.white,
-        fontSize: 22,
-        letterSpacing: 0,
       ),
-),
-actions: const [],
-centerTitle: true,
-elevation: 2,
-    );
-  }
-}
+
+      title: const Text(
+        'Homepage',
+        style: TextStyle(
+              color: Colors.white,
+              fontSize: 22,
+              letterSpacing: 0,
+            ),
+      ),
+      actions: const [],
+      centerTitle: true,
+      elevation: 2,
+          );
+        }
+      }
+
