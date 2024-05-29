@@ -1,13 +1,19 @@
 import 'package:flutter/material.dart';
+import 'package:dlsl_info_app/pages/home.dart';
 
 class GlobalFunction {
-  static AppBar dlslAppBar() {
+  static get context => null;
+
+  static AppBar dlslAppBar(BuildContext context, String title) {
     return AppBar(
       backgroundColor: const Color(0xFF00872C),
       automaticallyImplyLeading: false,
-      leading: InkWell(
-        onTap: () async {
-          // context.pushNamed('HomePage');
+      leading: GestureDetector(
+        onTap: () {
+          Navigator.push(
+          context, 
+          MaterialPageRoute(builder: (context) => const HomePage())
+          );
         },
         child: ClipRRect(
           borderRadius: BorderRadius.circular(8),
@@ -20,9 +26,9 @@ class GlobalFunction {
         ),
       ),
 
-      title: const Text(
-        'Homepage',
-        style: TextStyle(
+      title: Text(
+        title,
+        style: const TextStyle(
               color: Colors.white,
               fontSize: 22,
               letterSpacing: 0,
@@ -31,6 +37,6 @@ class GlobalFunction {
       actions: const [],
       centerTitle: true,
       elevation: 2,
-          );
+    );
   }
 }

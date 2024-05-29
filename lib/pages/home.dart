@@ -1,15 +1,16 @@
 import 'package:dlsl_info_app/pages/courses.dart';
+import 'package:dlsl_info_app/pages/event2.dart';
 import 'package:dlsl_info_app/pages/payment_facilities.dart';
 import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
-import 'package:dlsl_info_app/global.dart'; 
+import 'package:dlsl_info_app/global.dart';
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: GlobalFunction.dlslAppBar(),
+      appBar: GlobalFunction.dlslAppBar(context, 'DLSL Information'),
       body: SafeArea(
         top: true,
 
@@ -130,10 +131,10 @@ class HomePage extends StatelessWidget {
 
                         items: [
                           InkWell(
-                            onTap: () async {
+                            onTap: () {
                               Navigator.push(
                                 context, 
-                                MaterialPageRoute(builder: (context) => const PaymentFacilities()),);
+                                MaterialPageRoute(builder: (context) => const Event2()),);
                             },
 
                             child: newsCard(
@@ -144,10 +145,10 @@ class HomePage extends StatelessWidget {
                           ),
 
                           InkWell(
-                            onTap: () async {
+                            onTap: () {
                               Navigator.push(
                                 context, 
-                                MaterialPageRoute(builder: (context) => const PaymentFacilities()),);
+                                MaterialPageRoute(builder: (context) => const Event2()),);
                             },
 
                             child: newsCard(
@@ -176,7 +177,6 @@ class HomePage extends StatelessWidget {
 
         )
       )
-
     );
   }
 
@@ -371,6 +371,6 @@ return Card(
 
 
       
- 
+  
 }
 
