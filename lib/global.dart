@@ -2,8 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:dlsl_info_app/pages/home.dart';
 
 class GlobalFunction {
-  static get context => null;
-
   static AppBar dlslAppBar(BuildContext context, String title) {
     return AppBar(
       backgroundColor: const Color(0xFF00872C),
@@ -37,6 +35,40 @@ class GlobalFunction {
       actions: const [],
       centerTitle: true,
       elevation: 2,
+    );
+  }
+
+  static Column imgDate(String imgAsset, String date) {
+    return Column (
+      mainAxisSize: MainAxisSize.max,
+      children: [
+        Align(
+          alignment: const AlignmentDirectional(0, 0),
+            child: ClipRRect(
+              borderRadius: BorderRadius.circular(8),
+              child: Image.asset(
+                imgAsset, 
+                fit: BoxFit.fitWidth,
+              )
+            )  
+        ),
+              
+        Align(
+          alignment: const AlignmentDirectional(-1, 0),
+          child: Padding(
+            padding: const EdgeInsetsDirectional.fromSTEB(0, 0, 0, 5),
+            child: Text(
+              date, 
+              textAlign: TextAlign.start,
+              style: const TextStyle(
+                color: Colors.black,
+                fontSize: 10,
+                letterSpacing: 0
+                )
+            ),
+          ),
+        )
+      ],
     );
   }
 }
