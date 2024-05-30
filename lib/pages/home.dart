@@ -1,4 +1,5 @@
 import 'package:dlsl_info_app/pages/courses.dart';
+import 'package:dlsl_info_app/pages/event1.dart';
 import 'package:dlsl_info_app/pages/event2.dart';
 import 'package:dlsl_info_app/pages/payment_facilities.dart';
 import 'package:flutter/material.dart';
@@ -134,7 +135,7 @@ class HomePage extends StatelessWidget {
                             onTap: () {
                               Navigator.push(
                                 context, 
-                                MaterialPageRoute(builder: (context) => const Event2()),);
+                                MaterialPageRoute(builder: (context) => const Event1()),);
                             },
 
                             child: newsCard(
