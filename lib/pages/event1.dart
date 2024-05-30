@@ -7,6 +7,8 @@ class Event1 extends StatelessWidget {
   
   @override
   Widget build(BuildContext context) {
+
+    // For youtube player
     YoutubePlayerController controller = YoutubePlayerController(
     initialVideoId: 'OTjvaY8iJR4',
       flags: const YoutubePlayerFlags(
@@ -14,6 +16,7 @@ class Event1 extends StatelessWidget {
           mute: true,
       )
     );
+
     return Scaffold(
       appBar: GlobalFunction.dlslAppBar(context, 'Event'),
       body: SafeArea(
