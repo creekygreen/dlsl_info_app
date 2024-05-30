@@ -97,7 +97,7 @@ class HomePage extends StatelessWidget {
               // Latest News and Events portion
               Container(
                 width: MediaQuery.sizeOf(context).width,
-                height: 450,
+                height: 400,
                 decoration: const BoxDecoration(
                   color: Colors.white
                 ),

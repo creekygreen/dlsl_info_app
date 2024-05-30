@@ -41,14 +41,14 @@ class GlobalFunction {
       mainAxisSize: MainAxisSize.max,
       children: [
         Align(
-            alignment: const AlignmentDirectional(0, 0),
-            child: ClipRRect(
-                borderRadius: BorderRadius.circular(8),
-                child: Image.asset(
-                  imgAsset,
-                  fit: BoxFit.fitWidth,
-                )
-            )
+          alignment: const AlignmentDirectional(0, 0),
+          child: ClipRRect(
+              borderRadius: BorderRadius.circular(8),
+              child: Image.asset(
+                imgAsset,
+                fit: BoxFit.fitWidth,
+              )
+          )
         ),
         Align(
           alignment: const AlignmentDirectional(-1, 0),
@@ -70,64 +70,59 @@ class GlobalFunction {
   }
   static Card newsCard(String imgAsset, String date, String description) {
     return Card(
-        clipBehavior: Clip.antiAliasWithSaveLayer,
-        color: Colors.white,
-        elevation: 4,
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(8),
+      clipBehavior: Clip.antiAliasWithSaveLayer,
+      color: Colors.white,
+      elevation: 4,
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(15),
+      ),
+
+      child: Container(
+        width: 200,
+        height: 150,
+        decoration: BoxDecoration(
+          image: DecorationImage(
+            fit: BoxFit.cover,
+            image: Image.asset(imgAsset).image,
+            colorFilter: ColorFilter.mode(
+                Colors.black.withOpacity(0.4),
+                BlendMode.darken
+               ),
+          ),
         ),
-
-        child: Container(
-            width: 200,
-            height: 150,
-            decoration: BoxDecoration(
-              image: DecorationImage(
-                fit: BoxFit.cover,
-                image: Image.asset(
-                  imgAsset,
-                ).image,
-              ),
-            ),
-
-            child: Column(
-              mainAxisSize: MainAxisSize.max,
-              mainAxisAlignment: MainAxisAlignment.end,
-              crossAxisAlignment:
-              CrossAxisAlignment.start,
-
-              children: [
-                Padding(
-                  padding:
-                  const EdgeInsetsDirectional.fromSTEB(10, 0, 0, 0),
-                  child: Text(
-                    date,
-                    textAlign: TextAlign.start,
-                    style: const TextStyle(
-                      color: Colors.white,
-                      fontSize: 10,
-                      letterSpacing: 0,
-                      fontWeight: FontWeight.normal,
-                    ),
-                  ),
+      
+        child: Padding(
+          padding: const EdgeInsets.fromLTRB(15, 0, 15, 10),
+          child: Column(
+            mainAxisSize: MainAxisSize.max,
+            mainAxisAlignment: MainAxisAlignment.end,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Padding(
+                padding: const EdgeInsets.fromLTRB(0, 0, 0, 1),
+                child: Text(
+                  date,
+                  textAlign: TextAlign.start,
+                  style: const TextStyle(
+                    color: Colors.white,
+                    fontSize: 13,
+                    letterSpacing: 0,
+                    fontWeight: FontWeight.bold
+                  )
                 ),
-
-                Padding(
-                    padding: const EdgeInsetsDirectional.fromSTEB(10, 0, 0, 0),
-                    child: Text(
-                        description,
-                        style: const TextStyle(
-                          color: Colors.white,
-                          fontSize: 10,
-                          letterSpacing: 0,
-                        )
-                    )
-                )
-
-              ],
-            )
-
-        )
-
+              ),               
+              Text(
+                  description,
+                  style: const TextStyle(
+                    color: Colors.white,
+                    fontSize: 12,
+                    letterSpacing: 0
+                  )
+              )
+            ]
+          ),
+        )     
+      )
     );
   }
   static Column sloganHeader(String title, String subtitle) {
@@ -200,7 +195,7 @@ class GlobalFunction {
       clipBehavior: Clip.antiAliasWithSaveLayer,
       color: Colors.white,
       elevation: 4,
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(25)),
 
       child: Column(
         mainAxisSize: MainAxisSize.max,
@@ -227,6 +222,7 @@ class GlobalFunction {
                 style: const TextStyle(
                   color: Colors.black,
                   letterSpacing: 0,
+                  fontWeight: FontWeight.bold
                 )
             ),
           ),
