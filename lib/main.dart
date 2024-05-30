@@ -18,10 +18,8 @@ class MyApp extends StatelessWidget {
       );
   }
 }
-
 ThemeData _buildTheme(brightness) {
   var baseTheme = ThemeData(brightness: brightness);
-
   return baseTheme.copyWith(
     textTheme: GoogleFonts.outfitTextTheme(baseTheme.textTheme),
   );
