@@ -60,9 +60,9 @@ class Event1 extends StatelessWidget {
                     ),
                   ),
 
-                  Image.asset('lib/assets/images/cxi3o_1.jpg'),
-                  Image.asset('lib/assets/images/cxi3o_2.jpg'),
-                  Image.asset('lib/assets/images/cxi3o_3.jpg'),
+                  Image.asset('lib/assets/images/1.jpg'),
+                  Image.asset('lib/assets/images/2.jpg'),
+                  Image.asset('lib/assets/images/3.jpg'),
                 ]
               ),
             ),

@@ -32,7 +32,7 @@ class HomePage extends StatelessWidget {
                 child: Column(
                   mainAxisSize: MainAxisSize.max,
                   children: [
-                    sloganHeader('Be a Lasallian!', 'Take the first step here. Discover your possibilities'), 
+                    sloganHeader('Be a Lasallian!', 'Take the first step here. Discover your possibilities'),
                     SizedBox(
                       width: double.infinity,
                       height: 200,
@@ -60,7 +60,7 @@ class HomePage extends StatelessWidget {
 
                             child: infoCard(
                               'lib/assets/images/appli.png',
-                              'APPLICATION PROCESSS',
+                              'APPLICATION PROCESS',
                               'Learn more about our application process.'
                             )
                           ),
@@ -90,7 +90,7 @@ class HomePage extends StatelessWidget {
                             child: infoCard(
                               'lib/assets/images/pay.png',
                               'PAYMENT FACILITIES',
-                              'Discover conventient ways to pay.'
+                              'Discover convenient ways to pay.'
                             )
                           )
 
@@ -294,7 +294,7 @@ Column newsHeader(String title, String subtitle) {
         )
       ),
       
-      // Homepage intro subheader
+      // Homepage intro sub header
       Padding(
         padding: const EdgeInsets.fromLTRB(20, 0, 20, 20),
         child: Text(
