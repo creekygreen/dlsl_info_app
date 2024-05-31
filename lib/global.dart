@@ -2,6 +2,180 @@ import 'package:flutter/material.dart';
 import 'package:dlsl_info_app/pages/home.dart';
 
 class GlobalFunction {
+  static Container revCourseContainer(String imgAsset, String text, String subtext) {
+    return Container(
+        width: double.infinity,
+        height: 150,
+        decoration: const BoxDecoration(
+            gradient: LinearGradient(
+              colors: [
+                Color(0xFF008635),
+                Color(0xFF65BB3C)
+              ],
+              stops: [0, 1],
+              begin: AlignmentDirectional(-1, 0),
+              end: AlignmentDirectional(1, 0),
+            )
+        ),
+        child: Row(
+          mainAxisSize: MainAxisSize.max,
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          children: [
+            Column(
+              mainAxisSize: MainAxisSize.max,
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                    text,
+                    textAlign: TextAlign.start,
+                    style: const TextStyle(
+                        letterSpacing: 0,
+                        fontWeight: FontWeight.bold,
+                        fontSize: 15
+                    )
+                ),
+                Text(
+                    subtext,
+                    textAlign: TextAlign.start,
+                    style: const TextStyle(
+                        letterSpacing: 0,
+                        fontSize: 15
+                    )
+                ),
+                Padding(
+                    padding: const EdgeInsets.fromLTRB(0, 5, 0, 0),
+                    child:
+                    ElevatedButton(
+                      onPressed: () {},
+                      child: const Text('View'),
+                    )
+                )
+              ],
+            ),
+            ClipRect(
+              child: Image.asset(
+                  imgAsset,
+                  width: 100,
+                  height: 200,
+                  fit: BoxFit.cover
+              )
+            ),
+          ],
+        )
+    );
+  }
+  static Container courseContainer(String imgAsset, String text, String subtext) {
+    return Container(
+        width: double.infinity,
+        height: 150,
+        decoration: const BoxDecoration(
+            gradient: LinearGradient(
+              colors: [
+                Color(0xFF008635),
+                Color(0xFF65BB3C)
+              ],
+              stops: [0, 1],
+              begin: AlignmentDirectional(1, 0),
+              end: AlignmentDirectional(-1, 0),
+            )
+        ),
+        child: Row(
+          mainAxisSize: MainAxisSize.max,
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          children: [
+            ClipRect(
+                child: Image.asset(
+                    imgAsset,
+                    width: 100,
+                    height: 200,
+                    fit: BoxFit.cover
+                )
+            ),
+            Column(
+              mainAxisSize: MainAxisSize.max,
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  text,
+                  textAlign: TextAlign.start,
+                  style: const TextStyle(
+                    letterSpacing: 0,
+                    fontWeight: FontWeight.bold,
+                    fontSize: 15
+                  )
+                ),
+                Text(
+                    subtext,
+                    textAlign: TextAlign.start,
+                    style: const TextStyle(
+                      letterSpacing: 0,
+                        fontSize: 15
+                    )
+                ),
+                Padding(
+                    padding: const EdgeInsets.fromLTRB(0, 5, 0, 0),
+                    child:
+                    ElevatedButton(
+                      onPressed: () {},
+                      child: const Text('View'),
+                    )
+                )
+              ],
+            )
+          ],
+        )
+    );
+  }
+  static Row courseRow(String imgAsset, String text, String subtext) {
+    return Row(
+      mainAxisSize: MainAxisSize.max,
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        ClipRect(
+            child: Image.asset(
+                imgAsset,
+                width: 135,
+                height: 200,
+                fit: BoxFit.cover
+            )
+        ),
+        Column(
+          mainAxisSize: MainAxisSize.max,
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Padding(
+                padding: const EdgeInsetsDirectional.fromSTEB(0, 0, 0, 10),
+                child: Text(
+                  text,
+                  textAlign: TextAlign.start,
+                  style: const TextStyle(
+                    letterSpacing: 0,
+                  ),
+                )
+            ),
+            Text(
+                subtext,
+                textAlign: TextAlign.start,
+                style: const TextStyle(
+                  letterSpacing: 0,
+                )
+            ),
+            Padding(
+                padding: const EdgeInsetsDirectional.fromSTEB(0, 0, 0, 10),
+                child:
+                ElevatedButton(
+                    onPressed: () {},
+                    child: const Text('View')
+                )
+            )
+          ],
+        )
+      ],
+    );
+  }
   static AppBar dlslAppBar(BuildContext context, String title) {
     return AppBar(
       backgroundColor: const Color(0xFF00872C),
@@ -41,14 +215,14 @@ class GlobalFunction {
       mainAxisSize: MainAxisSize.max,
       children: [
         Align(
-            alignment: const AlignmentDirectional(0, 0),
-            child: ClipRRect(
-                borderRadius: BorderRadius.circular(8),
-                child: Image.asset(
-                  imgAsset,
-                  fit: BoxFit.fitWidth,
-                )
-            )
+          alignment: const AlignmentDirectional(0, 0),
+          child: ClipRRect(
+              borderRadius: BorderRadius.circular(8),
+              child: Image.asset(
+                imgAsset,
+                fit: BoxFit.fitWidth,
+              )
+          )
         ),
         Align(
           alignment: const AlignmentDirectional(-1, 0),
@@ -70,64 +244,59 @@ class GlobalFunction {
   }
   static Card newsCard(String imgAsset, String date, String description) {
     return Card(
-        clipBehavior: Clip.antiAliasWithSaveLayer,
-        color: Colors.white,
-        elevation: 4,
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(8),
-        ),
+      clipBehavior: Clip.antiAliasWithSaveLayer,
+      color: Colors.white,
+      elevation: 4,
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(15),
+      ),
 
-        child: Container(
-            width: 200,
-            height: 150,
-            decoration: BoxDecoration(
-              image: DecorationImage(
-                fit: BoxFit.cover,
-                image: Image.asset(
-                  imgAsset,
-                ).image,
-              ),
-            ),
-
-            child: Column(
-              mainAxisSize: MainAxisSize.max,
-              mainAxisAlignment: MainAxisAlignment.end,
-              crossAxisAlignment:
-              CrossAxisAlignment.start,
-
-              children: [
-                Padding(
-                  padding:
-                  const EdgeInsetsDirectional.fromSTEB(10, 0, 0, 0),
-                  child: Text(
-                    date,
-                    textAlign: TextAlign.start,
-                    style: const TextStyle(
-                      color: Colors.white,
-                      fontSize: 10,
-                      letterSpacing: 0,
-                      fontWeight: FontWeight.normal,
-                    ),
-                  ),
-                ),
-
-                Padding(
-                    padding: const EdgeInsetsDirectional.fromSTEB(10, 0, 0, 0),
-                    child: Text(
-                        description,
-                        style: const TextStyle(
-                          color: Colors.white,
-                          fontSize: 10,
-                          letterSpacing: 0,
-                        )
-                    )
-                )
-
-              ],
+      child: Container(
+        width: 200,
+        height: 150,
+        decoration: BoxDecoration(
+          image: DecorationImage(
+            fit: BoxFit.cover,
+            image: Image.asset(imgAsset).image,
+            colorFilter: ColorFilter.mode(
+              Colors.black.withOpacity(0.4),
+              BlendMode.darken
             )
-
-        )
-
+          )
+        ),
+      
+        child: Padding(
+          padding: const EdgeInsets.fromLTRB(15, 0, 15, 10),
+          child: Column(
+            mainAxisSize: MainAxisSize.max,
+            mainAxisAlignment: MainAxisAlignment.end,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Padding(
+                padding: const EdgeInsets.fromLTRB(0, 0, 0, 1),
+                child: Text(
+                  date,
+                  textAlign: TextAlign.start,
+                  style: const TextStyle(
+                    color: Colors.white,
+                    fontSize: 13,
+                    letterSpacing: 0,
+                    fontWeight: FontWeight.bold
+                  )
+                ),
+              ),               
+              Text(
+                  description,
+                  style: const TextStyle(
+                    color: Colors.white,
+                    fontSize: 12,
+                    letterSpacing: 0
+                  )
+              )
+            ]
+          ),
+        )     
+      )
     );
   }
   static Column sloganHeader(String title, String subtitle) {
@@ -200,41 +369,37 @@ class GlobalFunction {
       clipBehavior: Clip.antiAliasWithSaveLayer,
       color: Colors.white,
       elevation: 4,
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(25)),
 
       child: Column(
         mainAxisSize: MainAxisSize.max,
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Padding(
-              padding: const EdgeInsetsDirectional.fromSTEB( 0, 0, 0, 10),
+              padding: const EdgeInsetsDirectional.fromSTEB( 0, 0, 0, 5),
               child: ClipRRect(
                   borderRadius: BorderRadius.circular(8),
                   child: Image.asset(
                     imgAsset,
-                    width: 47,
-                    height: 57,
-                    fit: BoxFit.none,
+                    width: 50,
+                    height: 50
                   )
               )
           ),
 
           Padding(
-            padding: const EdgeInsets.fromLTRB(20, 0, 20, 0),
+            padding: const EdgeInsets.fromLTRB(20, 0, 20, 5),
             child: Text(
                 title,
                 textAlign: TextAlign.center,
                 style: const TextStyle(
                   color: Colors.black,
                   letterSpacing: 0,
+                  fontWeight: FontWeight.bold
                 )
             ),
           ),
 
-          const Divider(
-            color: Colors.transparent,
-            thickness: 1,
-          ),
 
           Padding(
             padding: const EdgeInsets.fromLTRB(20, 0, 20, 0),
