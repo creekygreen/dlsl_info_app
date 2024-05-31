@@ -153,10 +153,7 @@ class HomePage extends StatelessWidget {
 
                     Padding(
                       padding: const EdgeInsets.fromLTRB(0, 20, 0, 0),
-                      child: ElevatedButton(
-                        onPressed: () {},
-                        child: const Text('View More'),
-                      ),
+                      child: GlobalFunction.newMoreButton(context, 'View More', 'To see more news and events, go to the official DLSL website.'),
                     )
                   ]
 
@@ -169,6 +166,8 @@ class HomePage extends StatelessWidget {
       )
     );
   }
+
+
 }
 
 
