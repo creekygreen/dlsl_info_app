@@ -85,10 +85,10 @@ class GlobalFunction {
             fit: BoxFit.cover,
             image: Image.asset(imgAsset).image,
             colorFilter: ColorFilter.mode(
-                Colors.black.withOpacity(0.4),
-                BlendMode.darken
-               ),
-          ),
+              Colors.black.withOpacity(0.4),
+              BlendMode.darken
+            )
+          )
         ),
       
         child: Padding(

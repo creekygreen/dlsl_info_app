@@ -24,7 +24,7 @@ class Event1 extends StatelessWidget {
         SingleChildScrollView(         
           child: Container(
             decoration: const BoxDecoration(
-                  color: Colors.white
+              color: Colors.white
             ),
             child: Padding(
               padding: const EdgeInsets.all(25.0),
