@@ -2,7 +2,26 @@ import 'package:flutter/material.dart';
 import 'package:dlsl_info_app/pages/home.dart';
 
 class GlobalFunction {
-  static Container revCourseContainer(String imgAsset, String text, String subtext) {
+  static ElevatedButton newMoreButton(BuildContext context, String btnName, String msg) {
+    return ElevatedButton(
+      onPressed: () => showDialog<String>(
+        context: context,
+        builder: (BuildContext context) => AlertDialog(
+          content: Text(
+              msg
+          ),
+          actions: <Widget>[
+            TextButton(
+              onPressed: () => Navigator.pop(context, 'OK'),
+              child: const Text('OK'),
+            ),
+          ],
+        ),
+      ),
+      child: Text(btnName),
+    );
+  }
+  static Container revCourseContainer(BuildContext context, String imgAsset, String text, String subtext) {
     return Container(
         width: double.infinity,
         height: 150,
@@ -45,11 +64,7 @@ class GlobalFunction {
                 ),
                 Padding(
                     padding: const EdgeInsets.fromLTRB(0, 5, 0, 0),
-                    child:
-                    ElevatedButton(
-                      onPressed: () {},
-                      child: const Text('View'),
-                    )
+                  child: GlobalFunction.newMoreButton(context, 'View', 'To see more details about this course, please visit the official DLSL website.'),
                 )
               ],
             ),
@@ -65,7 +80,7 @@ class GlobalFunction {
         )
     );
   }
-  static Container courseContainer(String imgAsset, String text, String subtext) {
+  static Container courseContainer(BuildContext context, String imgAsset, String text, String subtext) {
     return Container(
         width: double.infinity,
         height: 150,
@@ -107,20 +122,16 @@ class GlobalFunction {
                   )
                 ),
                 Text(
-                    subtext,
-                    textAlign: TextAlign.start,
-                    style: const TextStyle(
-                      letterSpacing: 0,
-                        fontSize: 15
-                    )
+                  subtext,
+                  textAlign: TextAlign.start,
+                  style: const TextStyle(
+                    letterSpacing: 0,
+                      fontSize: 15
+                  )
                 ),
                 Padding(
-                    padding: const EdgeInsets.fromLTRB(0, 5, 0, 0),
-                    child:
-                    ElevatedButton(
-                      onPressed: () {},
-                      child: const Text('View'),
-                    )
+                  padding: const EdgeInsets.fromLTRB(0, 5, 0, 0),
+                  child: GlobalFunction.newMoreButton(context, 'View', 'To see more details about this course, please visit the official DLSL website.'),
                 )
               ],
             )
