@@ -97,7 +97,7 @@ class HomePage extends StatelessWidget {
               // Latest News and Events portion
               Container(
                 width: MediaQuery.sizeOf(context).width,
-                height: 400,
+                height: 460,
                 decoration: const BoxDecoration(
                   color: Colors.white
                 ),
@@ -149,8 +149,18 @@ class HomePage extends StatelessWidget {
                           ),
                         ]
                       )
+                    ),
+
+                    Padding(
+                      padding: const EdgeInsets.fromLTRB(0, 20, 0, 0),
+                      child: ElevatedButton(
+                        onPressed: () {},
+                        child: const Text('View More'),
+                      ),
                     )
                   ]
+
+
                 )
               )
             ]
