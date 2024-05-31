@@ -81,15 +81,16 @@ class _PaymentFacilitiesState extends State<PaymentFacilities> with TickerProvid
 
                 SizedBox(
                   width: MediaQuery.sizeOf(context).width,
-                  height: 50,
+                  height: 60,
                   child: TabBar(
                     controller: _tabController,
                     labelStyle: const TextStyle(
-                      fontSize: 17,
+                      fontSize: 18,
                       letterSpacing: 0,
+                      fontWeight: FontWeight.bold
                     ),
                     labelColor: Colors.green,
-                    unselectedLabelColor: Colors.grey,
+                    unselectedLabelColor: Colors.black,
                     indicatorColor: Colors.green,
                     indicatorWeight: 3,
                     tabs: const <Widget>[
@@ -105,20 +106,16 @@ class _PaymentFacilitiesState extends State<PaymentFacilities> with TickerProvid
 
                 SizedBox(
                   width: MediaQuery.sizeOf(context).width,
-                  height: 400,
+                  height: 420,
                   child: TabBarView(
                     controller: _tabController,
                     children: [
-                      Image.asset('lib/assets/images/v2tO51hf9N5Fig6mmAZTyF3jw6JYjwnVUSlBVHnV.png', fit: BoxFit.fill),
-                      Image.asset('lib/assets/images/overthecounter.jpg', fit: BoxFit.fill)
+                      Image.asset('lib/assets/images/v2tO51hf9N5Fig6mmAZTyF3jw6JYjwnVUSlBVHnV.png'),
+                      Image.asset('lib/assets/images/overthecounter.jpg')
                     ]
                   )
                 ),
 
-                const SizedBox(
-                  width: double.infinity,
-                  height: double.infinity
-                )
 
               ],
             ),

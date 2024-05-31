@@ -78,6 +78,7 @@ flutter:
     - lib/assets/images/v2tO51hf9N5Fig6mmAZTyF3jw6JYjwnVUSlBVHnV.png
     - lib/assets/images/VrL5uhMnCCmCWDJ85E84om58H6GNXpjxJrqjAabI.png
     - lib/assets/images/whIrS8HyCLEdbeTJQD7s7kxcoHVV0TrajBLFE0CS.png
+    - lib/assets/images/overthecounter.jpg
     
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
